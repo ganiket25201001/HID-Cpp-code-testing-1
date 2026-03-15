@@ -1,0 +1,27 @@
+# ninja log v6
+93	4801	7953026744603183	CMakeFiles/hidshield.dir/src/security/policy_engine.cpp.obj	b2ef8f9659c20027
+109	3080	7953026744764800	CMakeFiles/hidshield.dir/src/security/model_integrity.cpp.obj	b0ce38433802077e
+85	4609	7953026744522938	CMakeFiles/hidshield.dir/src/security/threat_classifier.cpp.obj	4b013a507953b940
+101	4810	7953026744684874	CMakeFiles/hidshield.dir/src/security/remediation_engine.cpp.obj	ea6fcb6345e12d7
+118	4616	7953026744854775	CMakeFiles/hidshield.dir/src/security/onnx_pipeline.cpp.obj	caedf4a1c5c23875
+14	4852	7953026743811852	CMakeFiles/hidshield.dir/src/app/main.cpp.obj	82931dbaf495b790
+77	4955	7953026744439058	CMakeFiles/hidshield.dir/src/security/behavioral_analyzer.cpp.obj	366fd378696c74fd
+30	4986	7953026743967340	CMakeFiles/hidshield.dir/src/platform/usb_device_detector.cpp.obj	4908023d1ef4f2e0
+69	5213	7953026744358927	CMakeFiles/hidshield.dir/src/security/device_fingerprint_engine.cpp.obj	5aa5aa3e53408f05
+62	5223	7953026744288963	CMakeFiles/hidshield.dir/src/platform/etw_provider.cpp.obj	9ce8382af727d143
+37	5262	7953026744037551	CMakeFiles/hidshield.dir/src/platform/hid_monitor.cpp.obj	2dc3a8f7d650ccbc
+22	5957	7953026743889985	CMakeFiles/hidshield.dir/src/core/orchestrator.cpp.obj	b11bb16105d23b91
+5957	6803	7953026803243765	hidshield.exe	7f500ca93904307
+98	2316	7953035229128537	CMakeFiles/hidshield.dir/src/security/model_integrity.cpp.obj	df3e8d951b28926c
+78	2862	7953035228928595	CMakeFiles/hidshield.dir/src/security/threat_classifier.cpp.obj	ea45e8adde3b1a86
+105	2878	7953035229188522	CMakeFiles/hidshield.dir/src/security/onnx_pipeline.cpp.obj	1ac47ebb5e0e98f7
+85	2904	7953035228988559	CMakeFiles/hidshield.dir/src/security/policy_engine.cpp.obj	8f77619da9d7732d
+71	3102	7953035228848539	CMakeFiles/hidshield.dir/src/security/behavioral_analyzer.cpp.obj	210b2ef5c3134591
+91	3121	7953035229058658	CMakeFiles/hidshield.dir/src/security/remediation_engine.cpp.obj	e0e4f68137485073
+63	3241	7953035228768495	CMakeFiles/hidshield.dir/src/security/device_fingerprint_engine.cpp.obj	5b0e5d675bea6a37
+55	3309	7953035228688505	CMakeFiles/hidshield.dir/src/platform/etw_provider.cpp.obj	91bba73c7b51cb71
+48	3320	7953035228628616	CMakeFiles/hidshield.dir/src/platform/hid_monitor.cpp.obj	89e62b93cec13fb8
+42	3483	7953035228558648	CMakeFiles/hidshield.dir/src/platform/usb_device_detector.cpp.obj	a9d8b9f9596c94b0
+28	3494	7953035228423479	CMakeFiles/hidshield.dir/src/app/main.cpp.obj	93fe43048a0cf9f0
+35	3951	7953035228488414	CMakeFiles/hidshield.dir/src/core/orchestrator.cpp.obj	cf031751f9a665f
+3952	4163	7953035267659447	hidshield.exe	2256e36e769a329

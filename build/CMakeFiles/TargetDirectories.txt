@@ -1,0 +1,3 @@
+D:/git/HID Dev/HID-Cpp/build/CMakeFiles/hidshield.dir
+D:/git/HID Dev/HID-Cpp/build/CMakeFiles/edit_cache.dir
+D:/git/HID Dev/HID-Cpp/build/CMakeFiles/rebuild_cache.dir
