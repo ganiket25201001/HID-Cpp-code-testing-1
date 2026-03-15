@@ -1,0 +1,25 @@
+# Build outputs
+build/
+out/
+
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# CMake/Ninja artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Logs
+*.log
