@@ -1,0 +1,32 @@
+{
+  "model_name": "hid_stage2_model",
+  "version": "0.1.0",
+  "created_utc": "2026-03-15T08:35:12.385269+00:00",
+  "features": [
+    "ikd_ms_50_window",
+    "ikd_ms_200_window",
+    "ikd_ms_1s_window",
+    "ikd_variance",
+    "synthetic_sequence",
+    "suspicious_process_launch",
+    "reputation_score",
+    "timing_skew_score"
+  ],
+  "classes": [
+    "SAFE",
+    "SUSPICIOUS",
+    "MALICIOUS"
+  ],
+  "training": {
+    "dataset": "synthetic_hid_behavior_v1",
+    "samples": 7500,
+    "train_accuracy": 0.998,
+    "test_accuracy": 0.998,
+    "algorithm": "multiclass_logistic_regression_gd"
+  },
+  "integrity": {
+    "sha256": "383a0bea25f205cb912ae157c913e873ff4ba0e1fb8f9edef58acc3a6711fbbb",
+    "verification_mode": "sha256",
+    "signature_status": "placeholder"
+  }
+}

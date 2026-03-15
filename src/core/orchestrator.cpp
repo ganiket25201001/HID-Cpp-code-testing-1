@@ -1,5 +1,7 @@
 #include "core/orchestrator.h"
 
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 
 namespace hidshield {
@@ -10,6 +12,21 @@ bool Orchestrator::Initialize() {
     }
 
     RegisterDefaultPlaybooks();
+
+    const std::filesystem::path modelPath = std::filesystem::path("models") / "hid_stage2_model.onnx";
+    const std::filesystem::path hashPath = std::filesystem::path("models") / "hid_stage2_model.sha256";
+    const std::filesystem::path metaPath = std::filesystem::path("models") / "hid_stage2_model.meta.json";
+
+    if (std::filesystem::exists(modelPath) && std::filesystem::exists(hashPath) && std::filesystem::exists(metaPath)) {
+        std::ifstream hashFile(hashPath);
+        std::string expectedHash;
+        std::getline(hashFile, expectedHash);
+        if (!expectedHash.empty()) {
+            const bool modelReady = onnxPipeline_.Initialize(modelPath.string(), expectedHash, metaPath.string());
+            std::cout << "Stage-2 model initialization: " << (modelReady ? "enabled" : "disabled") << "\n";
+        }
+    }
+
     return true;
 }
 

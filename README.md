@@ -24,17 +24,27 @@ Implemented now:
 
 ## AI and ML Status
 
-ML integration is wired, but no trained ONNX model artifact is committed yet.
+ML integration is wired and a baseline trained ONNX artifact can now be generated from the repository.
 
 Available now:
 
+- Training script: ml/train_hid_onnx.py
+- Model artifact output: models/hid_stage2_model.onnx
+- Integrity hash output: models/hid_stage2_model.sha256
+- Metadata output: models/hid_stage2_model.meta.json
 - Model integrity verification before use
 - Stage 2 inference interface and fallback behavior
 
+Run training:
+
+```powershell
+python .\ml\train_hid_onnx.py
+```
+
 Planned next:
 
-- Add model artifact and model manifest
-- Integrate ONNX Runtime session creation
+- Replace synthetic training set with captured enterprise telemetry dataset
+- Integrate full ONNX Runtime session execution in C++ inference path
 - Add explainability feature output for SOC triage
 - Add federated model delta update ingestion
 
