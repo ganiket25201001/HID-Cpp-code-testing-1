@@ -1,0 +1,98 @@
+HID-Cpp Run Guide (Plain Text)
+Date: 2026-03-15
+
+1) What this program currently does
+- Enumerates USB HID-class devices using SetupAPI.
+- Builds a device fingerprint (SHA-256 over descriptor bytes placeholder input).
+- Generates behavioral features from simulated HID keystroke timing.
+- Runs Stage-1 rule-based threat classification.
+- Optionally attempts Stage-2 ML path through ONNX pipeline stub (only if model integrity init is wired and valid model is provided).
+- Applies policy decision: Allow / Restrict / Quarantine / Block.
+- Emits ETW telemetry events for device evaluation and threat decision.
+- Executes remediation playbook callbacks (prints simulated response actions).
+
+Important:
+- This is a bootstrap userspace implementation.
+- Kernel driver interception, real-time blocking at IRP level, and full enterprise controls are not fully implemented yet.
+
+2) Prerequisites
+- Windows 10 or Windows 11.
+- Visual Studio 2022 with C++ toolchain installed.
+- CMake available in PATH.
+- PowerShell terminal recommended.
+
+3) Open the project
+- Open folder: D:\git\HID Dev\HID-Cpp
+- In PowerShell, run:
+  Set-Location "D:\git\HID Dev\HID-Cpp"
+
+4) Configure build
+- Run:
+  cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+
+5) Build
+- Run:
+  cmake --build build --config Release
+
+6) Run
+- Run:
+  .\build\Release\hidshield.exe
+
+7) Expected console behavior
+For each detected HID-class device, the app prints a line like:
+- Device VID:PID
+- Threat level (numeric enum)
+- Policy action (numeric enum)
+- Decision reason
+
+You will also see playbook output, for example:
+- [PLAYBOOK] SUSPICIOUS: quarantine + rate-limit ...
+- [PLAYBOOK] MALICIOUS: disable HID, terminate spawned process, create ticket ...
+
+8) Enum mapping used in output
+Threat level:
+- 0 = Safe
+- 1 = Suspicious
+- 2 = Malicious
+
+Policy action:
+- 0 = Allow
+- 1 = Restrict
+- 2 = Quarantine
+- 3 = Block
+
+9) How to verify it is working
+- Program starts without initialization error.
+- At least one HID device is evaluated when keyboard/mouse exists.
+- Console prints device decision lines.
+- Playbook line appears based on classification.
+- No immediate crash during single pass.
+
+10) Common issues and fixes
+Issue: "cmake is not recognized"
+Fix:
+- Install CMake and reopen terminal.
+- Or use Developer PowerShell for Visual Studio.
+
+Issue: Build fails due to missing MSVC tools
+Fix:
+- Install Desktop development with C++ workload in Visual Studio Installer.
+
+Issue: No devices listed
+Fix:
+- Ensure at least one HID device is present and detected by Windows Device Manager.
+- Run terminal as Administrator (for some environments).
+
+Issue: ETW appears silent
+Fix:
+- Current bootstrap writes ETW events via provider registration and string events.
+- Use ETW listeners/tools to consume provider output.
+
+11) Current scope limitations
+- No KMDF filter driver active yet.
+- No kernel-mode IRP interception yet.
+- No production ONNX Runtime session execution in this bootstrap.
+- Simulated event batch is used in orchestrator for feature extraction/testing path.
+
+12) Next practical step
+- Implement real Raw Input ingestion loop and replace simulated event generation in orchestrator.
